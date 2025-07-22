@@ -7,10 +7,10 @@ interface UseCountUpProps {
   startOnInView?: boolean;
 }
 
-export const useCountUp = ({ end, duration = 2000, startOnInView = true }: UseCountUpProps) => {
+export const useCountUp = <T extends HTMLElement = HTMLDivElement>({ end, duration = 2000, startOnInView = true }: UseCountUpProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     if (!startOnInView) {

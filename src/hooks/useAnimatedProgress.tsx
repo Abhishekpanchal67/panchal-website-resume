@@ -7,14 +7,14 @@ interface UseAnimatedProgressProps {
   delay?: number;
 }
 
-export const useAnimatedProgress = ({ 
+export const useAnimatedProgress = <T extends HTMLElement = HTMLDivElement>({ 
   targetValue, 
   duration = 1500, 
   delay = 0 
 }: UseAnimatedProgressProps) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
