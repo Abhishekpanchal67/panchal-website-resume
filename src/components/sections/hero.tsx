@@ -1,11 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Linkedin, Download, MapPin } from "lucide-react";
-
 export const HeroSection = () => {
-  return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-main">
+  return <section className="min-h-screen relative overflow-hidden bg-gradient-main">
       {/* Cosmic Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-pulse-glow" />
@@ -22,11 +19,7 @@ export const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-purple rounded-full blur-2xl opacity-30 animate-pulse-glow" />
               <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                  alt="Abhishek Panchal"
-                  className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow"
-                />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Abhishek Panchal" className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow" />
                 <Badge className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1">
                   Available for opportunities
                 </Badge>
@@ -41,12 +34,10 @@ export const HeroSection = () => {
                 Abhishek Panchal
               </span>
               <br />
-              <span className="text-foreground">Professional</span>
+              
             </h1>
             
-            <h2 className="text-xl lg:text-2xl text-primary mb-4 font-semibold">
-              Your Professional Title
-            </h2>
+            <h2 className="text-xl lg:text-2xl text-primary mb-4 font-semibold">Product Growth Manager</h2>
             
             <div className="flex items-center justify-center lg:justify-start mb-6 text-muted-foreground">
               <MapPin className="w-4 h-4 mr-2" />
@@ -71,44 +62,18 @@ export const HeroSection = () => {
 
             {/* Contact Icons */}
             <div className="flex justify-center lg:justify-start space-x-6">
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:text-primary hover:bg-primary/10"
-                asChild
-              >
-                <a 
-                  href="mailto:abhishekpanchal67@gmail.com"
-                  aria-label="Send email to Abhishek Panchal"
-                >
+              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10" asChild>
+                <a href="mailto:abhishekpanchal67@gmail.com" aria-label="Send email to Abhishek Panchal">
                   <Mail className="w-5 h-5" />
                 </a>
               </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:text-primary hover:bg-primary/10"
-                asChild
-              >
-                <a 
-                  href="tel:+919867748075"
-                  aria-label="Call Abhishek Panchal"
-                >
+              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10" asChild>
+                <a href="tel:+919867748075" aria-label="Call Abhishek Panchal">
                   <Phone className="w-5 h-5" />
                 </a>
               </Button>
-              <Button 
-                size="icon" 
-                variant="ghost" 
-                className="hover:text-primary hover:bg-primary/10"
-                asChild
-              >
-                <a 
-                  href="https://www.linkedin.com/in/abhishek-panchal-644293119/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visit Abhishek Panchal's LinkedIn profile"
-                >
+              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10" asChild>
+                <a href="https://www.linkedin.com/in/abhishek-panchal-644293119/" target="_blank" rel="noopener noreferrer" aria-label="Visit Abhishek Panchal's LinkedIn profile">
                   <Linkedin className="w-5 h-5" />
                 </a>
               </Button>
@@ -116,6 +81,5 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
