@@ -146,7 +146,7 @@ export const ContactSection = () => {
                     Ramrao Adik Institute of Technology
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    University of Your City • CGPA: 7.31
+                    Mumbai University • CGPA: 7.31
                   </p>
                 </div>
               </CardContent>
