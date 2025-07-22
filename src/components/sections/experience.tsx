@@ -56,7 +56,7 @@ export const ExperienceSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-main relative">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
@@ -64,20 +64,20 @@ export const ExperienceSection = () => {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-purple bg-clip-text text-transparent">
               Work Experience
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             My journey through various organizations and achievements
           </p>
         </div>
 
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-purple opacity-30" />
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-purple opacity-30" />
           
           <div className="space-y-12">
             {experiences.map((experience, index) => (
@@ -87,16 +87,16 @@ export const ExperienceSection = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-6 w-4 h-4 bg-gradient-purple rounded-full shadow-glow" />
+                <div className="absolute left-4 sm:left-6 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-purple rounded-full shadow-glow" />
                 
-                <Card className="ml-16 bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm">
-                  <CardContent className="p-8">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                <Card className="ml-12 sm:ml-16 bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 sm:mb-6">
                       <div>
-                        <h3 className="text-xl font-semibold text-primary mb-2">
+                        <h3 className="text-lg sm:text-xl font-semibold text-primary mb-2">
                           {experience.title}
                         </h3>
-                        <h4 className="text-lg font-medium text-accent mb-2">
+                        <h4 className="text-base sm:text-lg font-medium text-accent mb-2">
                           {experience.company}
                         </h4>
                         <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-muted-foreground">

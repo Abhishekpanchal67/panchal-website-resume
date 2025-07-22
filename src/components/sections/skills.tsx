@@ -68,7 +68,7 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-main relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl animate-pulse" />
@@ -78,26 +78,26 @@ export const SkillsSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-purple bg-clip-text text-transparent">
               Skills & Expertise
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Technical and strategic capabilities that drive success
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {skillCategories.map((category, index) => (
             <Card 
               key={category.title}
               className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 animate-slide-up backdrop-blur-sm group hover:scale-102"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-primary mb-8 text-center group-hover:text-accent transition-colors duration-300">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-semibold text-primary mb-6 sm:mb-8 text-center group-hover:text-accent transition-colors duration-300">
                   {category.title}
                 </h3>
                 

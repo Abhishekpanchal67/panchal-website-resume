@@ -39,7 +39,7 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-main relative">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
@@ -47,20 +47,20 @@ export const AboutSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-purple bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
             Product and growth-focused professional with expertise in driving user acquisition,
             retention, and revenue through data-driven strategies and cross-functional
             collaboration.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -69,7 +69,7 @@ export const AboutSection = () => {
                 className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 animate-slide-up backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <CardContent className="p-8">
+                <CardContent className="p-6 sm:p-8">
                   <div className="mb-6">
                     <div className="w-16 h-16 bg-gradient-purple rounded-2xl flex items-center justify-center mb-4 shadow-glow">
                       <Icon className="w-8 h-8 text-white" />

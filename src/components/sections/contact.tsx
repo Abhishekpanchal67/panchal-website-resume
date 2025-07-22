@@ -51,7 +51,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-main relative">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
@@ -59,23 +59,23 @@ export const ContactSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-purple bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Let's discuss how we can work together to achieve great results
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <div className="animate-slide-up">
-            <Card className="bg-gradient-card border-border/50 backdrop-blur-sm mb-8">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-primary mb-8">
+            <Card className="bg-gradient-card border-border/50 backdrop-blur-sm mb-6 sm:mb-8">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-6 sm:mb-8">
                   Contact Information
                 </h3>
                 
@@ -132,7 +132,7 @@ export const ContactSection = () => {
 
             {/* Education */}
             <Card className="bg-gradient-card border-border/50 backdrop-blur-sm">
-              <CardContent className="p-8">
+              <CardContent className="p-6 sm:p-8">
                 <div className="flex items-center space-x-3 mb-6">
                   <GraduationCap className="w-6 h-6 text-primary" />
                   <h3 className="text-xl font-semibold text-primary">Education</h3>
@@ -156,8 +156,8 @@ export const ContactSection = () => {
           {/* Contact Form */}
           <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <Card className="bg-gradient-card border-border/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-semibold text-primary mb-8">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-6 sm:mb-8">
                   Send Message
                 </h3>
                 
@@ -240,7 +240,7 @@ export const ContactSection = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-border/30">
+        <div className="text-center mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border/30">
           <p className="text-muted-foreground">
             © 2024 Abhishek Panchal. All rights reserved.
           </p>

@@ -47,8 +47,8 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
       className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 animate-slide-up text-center backdrop-blur-sm group hover:scale-105"
       style={{ animationDelay: `${delay}s` }}
     >
-      <CardContent className="p-6">
-        <div className={`text-3xl lg:text-4xl font-bold mb-2 ${color} transition-all duration-300 group-hover:scale-110`}>
+      <CardContent className="p-4 sm:p-6">
+        <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${color} transition-all duration-300 group-hover:scale-110`}>
           {formatCount(count)}
         </div>
         <div className="text-sm text-muted-foreground">
@@ -87,7 +87,7 @@ export const AchievementsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-main relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-10 w-24 h-24 bg-accent/10 rounded-full blur-2xl animate-pulse" />
@@ -96,19 +96,19 @@ export const AchievementsSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-purple bg-clip-text text-transparent">
               Key Achievements
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
             Numbers that showcase my impact and results
           </p>
         </div>
 
         {/* Animated Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {achievements.map((achievement, index) => (
             <AnimatedAchievement
               key={achievement.label}
@@ -121,7 +121,7 @@ export const AchievementsSection = () => {
         </div>
 
         {/* Enhanced Awards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {awards.map((award, index) => {
             const Icon = award.icon;
             return (
@@ -130,7 +130,7 @@ export const AchievementsSection = () => {
                 className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 animate-slide-up backdrop-blur-sm group hover:scale-102"
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
-                <CardContent className="p-8">
+                <CardContent className="p-6 sm:p-8">
                   <div className="flex items-start space-x-4">
                     <div className={`w-12 h-12 ${award.color} rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}>
                       <Icon className="w-6 h-6 text-white" />
