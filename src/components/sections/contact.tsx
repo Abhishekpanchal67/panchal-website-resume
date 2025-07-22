@@ -143,7 +143,7 @@ export const ContactSection = () => {
                     Bachelor of Engineering (Information Technology)
                   </h4>
                   <p className="text-sm text-muted-foreground mb-1">
-                    Your Institute of Technology
+                    Ramrao Adik Institute of Technology
                   </p>
                   <p className="text-sm text-muted-foreground">
                     University of Your City • CGPA: 7.31
