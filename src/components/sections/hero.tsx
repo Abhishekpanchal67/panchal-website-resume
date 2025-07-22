@@ -1,18 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Linkedin, Download, MapPin } from "lucide-react";
-
 export const HeroSection = () => {
   const scrollToContact = () => {
     const contactElement = document.getElementById('contact');
     if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
+      contactElement.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-main">
+  return <section className="min-h-screen relative overflow-hidden bg-gradient-main">
       {/* Enhanced Cosmic Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-pulse-glow" />
@@ -22,22 +20,25 @@ export const HeroSection = () => {
         <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-primary/30 rounded-full animate-pulse" />
         
         {/* Additional floating elements */}
-        <div className="absolute top-1/3 left-1/3 w-4 h-4 bg-gradient-purple rounded-full opacity-20 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3s' }} />
-        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-accent/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 left-1/3 w-4 h-4 bg-gradient-purple rounded-full opacity-20 animate-bounce" style={{
+        animationDelay: '2s',
+        animationDuration: '3s'
+      }} />
+        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-accent/20 rounded-full animate-pulse" style={{
+        animationDelay: '1s'
+      }} />
       </div>
       
       <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end order-2 lg:order-1">
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="relative animate-fade-in" style={{
+            animationDelay: '0.3s'
+          }}>
               <div className="absolute inset-0 bg-gradient-purple rounded-full blur-2xl opacity-30 animate-pulse-glow" />
               <div className="relative group">
-                <img 
-                  src="/lovable-uploads/a8fba13d-2405-4b7b-9cd8-753041be2172.png" 
-                  alt="Abhishek Panchal - Product Growth Manager" 
-                  className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow transition-transform duration-500 group-hover:scale-105" 
-                />
+                <img src="/lovable-uploads/1082f60e-575a-44fe-aa76-704d70239dc6.png" alt="Abhishek Panchal" className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow transition-transform duration-500 group-hover:scale-105" />
                 <Badge className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1 animate-bounce">
                   Available for opportunities
                 </Badge>
@@ -54,38 +55,33 @@ export const HeroSection = () => {
               <br />
             </h1>
             
-            <h2 className="text-xl lg:text-2xl text-primary mb-4 font-semibold animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <h2 className="text-xl lg:text-2xl text-primary mb-4 font-semibold animate-slide-up" style={{
+            animationDelay: '0.2s'
+          }}>
               Product Growth Manager
             </h2>
             
-            <div className="flex items-center justify-center lg:justify-start mb-6 text-muted-foreground animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex items-center justify-center lg:justify-start mb-6 text-muted-foreground animate-slide-up" style={{
+            animationDelay: '0.3s'
+          }}>
               <MapPin className="w-4 h-4 mr-2" />
               <span>Mumbai, Maharashtra</span>
             </div>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              Transforming ideas into growth engines. 4+ years of driving product-led
-              growth, user acquisition, and revenue generation through data-driven strategies
-              and innovative solutions.
-            </p>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed animate-slide-up" style={{
+            animationDelay: '0.4s'
+          }}>Product Growth Manager with 4+ years of experience in building and scaling digital products. I turn ideas into impactful solutions through agile execution, data-driven strategy, and growth experimentation—driving user acquisition, engagement, and revenue at scale.
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-slide-up" style={{ animationDelay: '0.5s' }}>
-              <Button 
-                onClick={scrollToContact}
-                className="bg-gradient-purple hover:opacity-90 text-white px-8 py-3 text-lg shadow-glow transition-all duration-300 hover:scale-105"
-              >
+          </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-slide-up" style={{
+            animationDelay: '0.5s'
+          }}>
+              <Button onClick={scrollToContact} className="bg-gradient-purple hover:opacity-90 text-white px-8 py-3 text-lg shadow-glow transition-all duration-300 hover:scale-105">
                 Let's Connect
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-primary text-primary hover:bg-primary/10 px-8 py-3 text-lg transition-all duration-300 hover:scale-105" 
-                asChild
-              >
-                <a 
-                  href="https://drive.google.com/file/d/15K5YuhvnIbb4bBcLRfEsLQ8wvMTv_PHe/view?usp=drive_link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-8 py-3 text-lg transition-all duration-300 hover:scale-105" asChild>
+                <a href="https://drive.google.com/file/d/15K5YuhvnIbb4bBcLRfEsLQ8wvMTv_PHe/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <Download className="w-5 h-5 mr-2" />
                   Download Resume
                 </a>
@@ -93,7 +89,9 @@ export const HeroSection = () => {
             </div>
 
             {/* Contact Icons */}
-            <div className="flex justify-center lg:justify-start space-x-6 animate-slide-up" style={{ animationDelay: '0.6s' }}>
+            <div className="flex justify-center lg:justify-start space-x-6 animate-slide-up" style={{
+            animationDelay: '0.6s'
+          }}>
               <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110" asChild>
                 <a href="mailto:abhishekpanchal67@gmail.com" aria-label="Send email to Abhishek Panchal">
                   <Mail className="w-5 h-5" />
@@ -113,6 +111,5 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
