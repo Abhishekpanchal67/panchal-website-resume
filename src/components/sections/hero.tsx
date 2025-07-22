@@ -30,7 +30,7 @@ export const HeroSection = () => {
       </div>
       
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end order-2 lg:order-1">
             <div className="relative animate-fade-in" style={{
@@ -38,7 +38,7 @@ export const HeroSection = () => {
           }}>
               <div className="absolute inset-0 bg-gradient-purple rounded-full blur-2xl opacity-30 animate-pulse-glow" />
               <div className="relative group">
-                <img src="/lovable-uploads/a8fba13d-2405-4b7b-9cd8-753041be2172.png" alt="Abhishek Panchal" className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow transition-transform duration-500 group-hover:scale-105" />
+                <img src="/lovable-uploads/a8fba13d-2405-4b7b-9cd8-753041be2172.png" alt="Abhishek Panchal" className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow transition-transform duration-500 group-hover:scale-105" />
                 <Badge className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-green-500 text-white px-2 py-1 sm:px-3 text-xs sm:text-sm animate-bounce">
                   Available for opportunities
                 </Badge>
@@ -47,15 +47,14 @@ export const HeroSection = () => {
           </div>
 
           {/* Content */}
-          <div className="text-center lg:text-left order-1 lg:order-2 animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+          <div className="text-center lg:text-left order-1 lg:order-2 animate-fade-in px-4 lg:px-0">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight">
               <span className="bg-gradient-purple bg-clip-text text-transparent">
                 Abhishek Panchal
               </span>
-              <br />
             </h1>
             
-            <h2 className="text-lg sm:text-xl lg:text-2xl text-primary mb-3 sm:mb-4 font-semibold animate-slide-up" style={{
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary mb-3 sm:mb-4 font-semibold animate-slide-up" style={{
             animationDelay: '0.2s'
           }}>
               Product Growth Manager
@@ -68,19 +67,18 @@ export const HeroSection = () => {
               <span className="text-sm sm:text-base">Mumbai, Maharashtra</span>
             </div>
 
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl leading-relaxed animate-slide-up px-4 lg:px-0" style={{
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl leading-relaxed animate-slide-up mx-auto lg:mx-0" style={{
             animationDelay: '0.4s'
           }}>Product Growth Manager with 4+ years of experience in building and scaling digital products. I turn ideas into impactful solutions through agile execution, data-driven strategy, and growth experimentation driving user acquisition, engagement, and revenue at scale.
-
           </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 animate-slide-up px-4 lg:px-0" style={{
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 animate-slide-up" style={{
             animationDelay: '0.5s'
           }}>
-              <Button onClick={scrollToContact} className="bg-gradient-purple hover:opacity-90 text-white px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg shadow-glow transition-all duration-300 hover:scale-105">
+              <Button onClick={scrollToContact} className="bg-gradient-purple hover:opacity-90 text-white px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 text-sm sm:text-base lg:text-lg shadow-glow transition-all duration-300 hover:scale-105">
                 Let's Connect
               </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg transition-all duration-300 hover:scale-105" asChild>
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 text-sm sm:text-base lg:text-lg transition-all duration-300 hover:scale-105" asChild>
                 <a href="https://drive.google.com/file/d/15K5YuhvnIbb4bBcLRfEsLQ8wvMTv_PHe/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   Download Resume

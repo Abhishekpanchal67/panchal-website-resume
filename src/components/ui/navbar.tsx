@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { X, Menu } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
@@ -9,6 +10,7 @@ interface NavbarProps {
 
 export const Navbar = ({ activeSection, onSectionChange }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,22 +65,43 @@ export const Navbar = ({ activeSection, onSectionChange }: NavbarProps) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 rounded-lg hover:bg-secondary">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border">
+            <div className="px-6 py-4 space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    onSectionChange(item.id);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={cn(
+                    "block w-full text-left px-4 py-3 rounded-lg transition-all duration-300",
+                    "hover:text-primary hover:bg-primary/10",
+                    activeSection === item.id
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
