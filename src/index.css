@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
 :root {
-    /* Enhanced Dark Theme with Classy Gold & Navy */
-    --background: 224 36% 6%;
-    --foreground: 214 20% 93%;
+    /* Elegant Dark Theme with Deep Blue & Silver */
+    --background: 220 27% 8%;
+    --foreground: 213 27% 94%;
 
-    --card: 224 30% 8%;
-    --card-foreground: 214 20% 93%;
+    --card: 220 23% 11%;
+    --card-foreground: 213 27% 94%;
 
-    --popover: 224 30% 8%;
-    --popover-foreground: 214 20% 93%;
+    --popover: 220 23% 11%;
+    --popover-foreground: 213 27% 94%;
 
-    --primary: 44 87% 58%;
-    --primary-foreground: 224 36% 6%;
+    --primary: 213 73% 65%;
+    --primary-foreground: 220 27% 8%;
 
-    --secondary: 223 25% 14%;
-    --secondary-foreground: 214 20% 93%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 213 27% 94%;
 
-    --muted: 223 25% 12%;
-    --muted-foreground: 215 12% 64%;
+    --muted: 220 17% 14%;
+    --muted-foreground: 215 15% 68%;
 
-    --accent: 29 78% 54%;
-    --accent-foreground: 224 36% 6%;
+    --accent: 200 85% 55%;
+    --accent-foreground: 220 27% 8%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 223 20% 16%;
-    --input: 223 20% 16%;
-    --ring: 44 87% 58%;
+    --border: 220 17% 18%;
+    --input: 220 17% 18%;
+    --ring: 213 73% 65%;
 
-    /* Enhanced Portfolio Gradients */
-    --gradient-purple: linear-gradient(135deg, hsl(44 87% 58%), hsl(29 78% 54%));
-    --gradient-main: linear-gradient(135deg, hsl(224 36% 6%) 0%, hsl(223 30% 7%) 50%, hsl(223 25% 12%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(224 30% 8%) 0%, hsl(223 28% 10%) 100%);
-    --shadow-glow: 0 10px 30px -10px hsl(44 87% 58% / 0.3);
-    --pulse-glow: 0 0 40px hsl(44 87% 58% / 0.4);
+    /* Enhanced Portfolio Gradients with Classy Colors */
+    --gradient-purple: linear-gradient(135deg, hsl(213, 73%, 65%), hsl(200, 85%, 55%));
+    --gradient-main: linear-gradient(135deg, hsl(220, 27%, 8%) 0%, hsl(220, 25%, 10%) 50%, hsl(220, 17%, 14%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220, 23%, 11%) 0%, hsl(220, 20%, 13%) 100%);
+    --shadow-glow: 0 10px 30px -10px hsl(213, 73%, 65%, 0.25);
+    --pulse-glow: 0 0 40px hsl(213, 73%, 65%, 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;

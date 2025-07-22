@@ -34,8 +34,8 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-purple rounded-full blur-2xl opacity-30 animate-pulse-glow" />
               <div className="relative group">
                 <img 
-                  src="/lovable-uploads/1082f60e-575a-44fe-aa76-704d70239dc6.png" 
-                  alt="Abhishek Panchal" 
+                  src="/lovable-uploads/a8fba13d-2405-4b7b-9cd8-753041be2172.png" 
+                  alt="Abhishek Panchal - Product Growth Manager" 
                   className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow transition-transform duration-500 group-hover:scale-105" 
                 />
                 <Badge className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1 animate-bounce">

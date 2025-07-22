@@ -111,7 +111,7 @@ export default {
 				},
 				pulseGlow: {
 					'0%, 100%': { boxShadow: 'var(--shadow-glow)' },
-					'50%': { boxShadow: '0 0 60px hsl(44 87% 58% / 0.5)' }
+					'50%': { boxShadow: '0 0 60px hsl(213, 73%, 65%, 0.4)' }
 				},
 				float: {
 					'0%, 100%': { transform: 'translateY(0px)' },
