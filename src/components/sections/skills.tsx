@@ -1,5 +1,40 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useAnimatedProgress } from "@/hooks/useAnimatedProgress";
+
+const AnimatedSkill = ({ 
+  name, 
+  level, 
+  delay = 0 
+}: { 
+  name: string; 
+  level: number; 
+  delay?: number; 
+}) => {
+  const { progress, elementRef } = useAnimatedProgress({ 
+    targetValue: level, 
+    duration: 2000, 
+    delay 
+  });
+
+  return (
+    <div ref={elementRef} className="space-y-2 group">
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+          {name}
+        </span>
+        <span className="text-sm text-primary font-semibold">
+          {Math.round(progress)}%
+        </span>
+      </div>
+      <Progress 
+        value={progress} 
+        className="h-2 transition-all duration-300 group-hover:h-3"
+      />
+    </div>
+  );
+};
 
 export const SkillsSection = () => {
   const skillCategories = [
@@ -33,11 +68,13 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-main relative">
-      {/* Background Elements */}
+    <section className="py-20 px-6 bg-gradient-main relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl" />
-        <div className="absolute bottom-10 right-10 w-36 h-36 bg-accent/10 rounded-full blur-2xl" />
+        <div className="absolute top-10 left-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute bottom-10 right-10 w-36 h-36 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-gradient-purple opacity-5 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '5s' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-16 h-16 bg-primary/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -56,30 +93,22 @@ export const SkillsSection = () => {
           {skillCategories.map((category, index) => (
             <Card 
               key={category.title}
-              className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 animate-slide-up backdrop-blur-sm"
+              className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 animate-slide-up backdrop-blur-sm group hover:scale-102"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold text-primary mb-8 text-center">
+                <h3 className="text-xl font-semibold text-primary mb-8 text-center group-hover:text-accent transition-colors duration-300">
                   {category.title}
                 </h3>
                 
                 <div className="space-y-6">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skill.name} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-foreground">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-primary font-semibold">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2"
-                      />
-                    </div>
+                    <AnimatedSkill
+                      key={skill.name}
+                      name={skill.name}
+                      level={skill.level}
+                      delay={(index * 200) + (skillIndex * 100)}
+                    />
                   ))}
                 </div>
               </CardContent>
