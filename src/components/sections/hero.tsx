@@ -1,7 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Linkedin, Download, MapPin } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
 
 export const HeroSection = () => {
   return (
@@ -23,8 +23,8 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-purple rounded-full blur-2xl opacity-30 animate-pulse-glow" />
               <div className="relative">
                 <img
-                  src={profilePhoto}
-                  alt="Profile"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  alt="Abhishek Panchal"
                   className="w-80 h-80 rounded-full object-cover border-4 border-primary/20 shadow-glow"
                 />
                 <Badge className="absolute -top-2 -right-2 bg-green-500 text-white px-3 py-1">
@@ -38,7 +38,7 @@ export const HeroSection = () => {
           <div className="text-center lg:text-left order-1 lg:order-2 animate-fade-in">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               <span className="bg-gradient-purple bg-clip-text text-transparent">
-                Your Name
+                Abhishek Panchal
               </span>
               <br />
               <span className="text-foreground">Professional</span>
@@ -71,14 +71,46 @@ export const HeroSection = () => {
 
             {/* Contact Icons */}
             <div className="flex justify-center lg:justify-start space-x-6">
-              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10">
-                <Mail className="w-5 h-5" />
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:text-primary hover:bg-primary/10"
+                asChild
+              >
+                <a 
+                  href="mailto:abhishekpanchal67@gmail.com"
+                  aria-label="Send email to Abhishek Panchal"
+                >
+                  <Mail className="w-5 h-5" />
+                </a>
               </Button>
-              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10">
-                <Phone className="w-5 h-5" />
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:text-primary hover:bg-primary/10"
+                asChild
+              >
+                <a 
+                  href="tel:+919867748075"
+                  aria-label="Call Abhishek Panchal"
+                >
+                  <Phone className="w-5 h-5" />
+                </a>
               </Button>
-              <Button size="icon" variant="ghost" className="hover:text-primary hover:bg-primary/10">
-                <Linkedin className="w-5 h-5" />
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="hover:text-primary hover:bg-primary/10"
+                asChild
+              >
+                <a 
+                  href="https://www.linkedin.com/in/abhishek-panchal-644293119/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Abhishek Panchal's LinkedIn profile"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </Button>
             </div>
           </div>

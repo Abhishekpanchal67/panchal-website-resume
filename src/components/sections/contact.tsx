@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,7 +42,12 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="text-primary font-medium">+91 9867748075</p>
+                      <a 
+                        href="tel:+919867748075"
+                        className="text-primary font-medium hover:underline cursor-pointer"
+                      >
+                        +91 9867748075
+                      </a>
                     </div>
                   </div>
 
@@ -51,7 +57,12 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-primary font-medium">your.email@gmail.com</p>
+                      <a 
+                        href="mailto:abhishekpanchal67@gmail.com"
+                        className="text-primary font-medium hover:underline cursor-pointer"
+                      >
+                        abhishekpanchal67@gmail.com
+                      </a>
                     </div>
                   </div>
 
@@ -61,7 +72,14 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">LinkedIn</p>
-                      <p className="text-primary font-medium">LinkedIn Profile</p>
+                      <a 
+                        href="https://www.linkedin.com/in/abhishek-panchal-644293119/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary font-medium hover:underline cursor-pointer"
+                      >
+                        LinkedIn Profile
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -154,7 +172,7 @@ export const ContactSection = () => {
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-border/30">
           <p className="text-muted-foreground">
-            © 2024 Your Name. All rights reserved.
+            © 2024 Abhishek Panchal. All rights reserved.
           </p>
         </div>
       </div>
