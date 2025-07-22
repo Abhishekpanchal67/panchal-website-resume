@@ -19,12 +19,13 @@ export default {
 		},
 		extend: {
 			backgroundImage: {
-				'gradient-main': 'var(--background-gradient)',
-				'gradient-purple': 'var(--purple-gradient)',
-				'gradient-card': 'var(--card-gradient)',
+				'gradient-main': 'var(--gradient-main)',
+				'gradient-purple': 'var(--gradient-purple)',
+				'gradient-card': 'var(--gradient-card)',
 			},
 			boxShadow: {
-				'glow': 'var(--glow-purple)',
+				'glow': 'var(--shadow-glow)',
+				'pulse-glow': 'var(--pulse-glow)',
 			},
 			animation: {
 				'fade-in': 'fadeIn 0.6s ease-out',
@@ -109,8 +110,8 @@ export default {
 					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
 				pulseGlow: {
-					'0%, 100%': { boxShadow: 'var(--glow-purple)' },
-					'50%': { boxShadow: '0 0 60px hsl(260 100% 70% / 0.5)' }
+					'0%, 100%': { boxShadow: 'var(--shadow-glow)' },
+					'50%': { boxShadow: '0 0 60px hsl(44 87% 58% / 0.5)' }
 				},
 				float: {
 					'0%, 100%': { transform: 'translateY(0px)' },

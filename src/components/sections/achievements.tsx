@@ -9,17 +9,25 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
   color: string; 
   delay?: number;
 }) => {
-  // Extract numeric value for animation
-  const numericValue = parseInt(value.replace(/[^\d]/g, '')) || 0;
+  // Extract numeric value for animation - handle decimals
+  let numericValue = 0;
+  if (value.includes('K')) {
+    numericValue = parseFloat(value.replace(/[^\d.]/g, '')) * 1000;
+  } else if (value.includes('M')) {
+    numericValue = parseFloat(value.replace(/[^\d.]/g, '')) * 1000000;
+  } else if (value.includes('x')) {
+    numericValue = parseFloat(value.replace(/[^\d.]/g, '')) * 10;
+  } else {
+    numericValue = parseFloat(value.replace(/[^\d.]/g, '')) || 0;
+  }
+  
   const { count, elementRef } = useCountUp({ end: numericValue, duration: 2500 });
   
   // Format the animated count back to original format
   const formatCount = (num: number) => {
-    if (value.includes('K+')) {
-      return `${(num / 1000).toFixed(num >= 1000 ? 0 : 1)}K+`;
-    }
-    if (value.includes('K')) {
-      return `${(num / 1000).toFixed(1)}K`;
+    if (value.includes('K') && !value.includes('M')) {
+      const kValue = num / 1000;
+      return value.includes('+') ? `${Math.floor(kValue)}K+` : `${Math.floor(kValue)}K`;
     }
     if (value.includes('M')) {
       return `${(num / 1000000).toFixed(1)}M`;
@@ -28,9 +36,9 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
       return `${(num / 10).toFixed(1)}x`;
     }
     if (value.includes('%')) {
-      return `${num}%`;
+      return `${Math.floor(num)}%`;
     }
-    return num.toString();
+    return Math.floor(num).toString();
   };
 
   return (
@@ -53,12 +61,12 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
 
 export const AchievementsSection = () => {
   const achievements = [
-    { value: "500K+", label: "$500K+ Revenue", color: "text-blue-400" },
-    { value: "25x", label: "2.5x Conversion", color: "text-green-400" },
-    { value: "35%", label: "35% CAC Reduction", color: "text-purple-400" },
-    { value: "30K+", label: "30K+ Qualified Leads", color: "text-orange-400" },
-    { value: "385K", label: "385K Clicks", color: "text-pink-400" },
-    { value: "23600K", label: "23.6M SEO Impressions", color: "text-cyan-400" },
+    { value: "500K", label: "Revenue", color: "text-blue-400" },
+    { value: "2.5x", label: "Conversion", color: "text-green-400" },
+    { value: "35%", label: "CAC Reduction", color: "text-purple-400" },
+    { value: "30K", label: "Qualified Leads", color: "text-orange-400" },
+    { value: "385K", label: "Clicks", color: "text-pink-400" },
+    { value: "23.6M", label: "SEO Impressions", color: "text-cyan-400" },
   ];
 
   const awards = [

@@ -4,8 +4,52 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Linkedin, GraduationCap } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import confetti from "canvas-confetti";
+import { useToast } from "@/hooks/use-toast";
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 export const ContactSection = () => {
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
+  const { toast } = useToast();
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Trigger confetti
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      
+      // Show success toast
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out, I will get back as soon as possible",
+        duration: 5000,
+      });
+      
+      // Reset form
+      reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <section className="py-20 px-6 bg-gradient-main relative">
       {/* Background Elements */}
@@ -117,15 +161,19 @@ export const ContactSection = () => {
                   Send Message
                 </h3>
                 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Name
                     </label>
                     <Input 
+                      {...register("name", { required: "Name is required" })}
                       placeholder="Your Name"
                       className="bg-background/50 border-border focus:border-primary"
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                    )}
                   </div>
 
                   <div>
@@ -133,10 +181,20 @@ export const ContactSection = () => {
                       Email
                     </label>
                     <Input 
+                      {...register("email", { 
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address"
+                        }
+                      })}
                       type="email"
                       placeholder="your@email.com"
                       className="bg-background/50 border-border focus:border-primary"
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    )}
                   </div>
 
                   <div>
@@ -144,9 +202,13 @@ export const ContactSection = () => {
                       Subject
                     </label>
                     <Input 
+                      {...register("subject", { required: "Subject is required" })}
                       placeholder="Project Discussion"
                       className="bg-background/50 border-border focus:border-primary"
                     />
+                    {errors.subject && (
+                      <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+                    )}
                   </div>
 
                   <div>
@@ -154,14 +216,22 @@ export const ContactSection = () => {
                       Message
                     </label>
                     <Textarea 
+                      {...register("message", { required: "Message is required" })}
                       placeholder="Tell me about your project..."
                       rows={6}
                       className="bg-background/50 border-border focus:border-primary resize-none"
                     />
+                    {errors.message && (
+                      <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                    )}
                   </div>
 
-                  <Button className="w-full bg-gradient-purple hover:opacity-90 text-white py-3 text-lg shadow-glow">
-                    Send Message
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-purple hover:opacity-90 text-white py-3 text-lg shadow-glow disabled:opacity-50"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
