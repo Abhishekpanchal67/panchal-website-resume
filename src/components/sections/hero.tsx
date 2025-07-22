@@ -41,7 +41,7 @@ export const HeroSection = () => {
             
             <div className="flex items-center justify-center lg:justify-start mb-6 text-muted-foreground">
               <MapPin className="w-4 h-4 mr-2" />
-              <span>Your Location</span>
+              <span>Mumbai, Maharashtra</span>
             </div>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed">
