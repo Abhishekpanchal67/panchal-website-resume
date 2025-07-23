@@ -22,8 +22,18 @@ export const ContactSection = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email via Supabase edge function
+      const response = await fetch('/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
       
       // Trigger confetti
       confetti({
@@ -42,6 +52,7 @@ export const ContactSection = () => {
       // Reset form
       reset();
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
