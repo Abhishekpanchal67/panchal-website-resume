@@ -22,17 +22,34 @@ export const ContactSection = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Send email via Supabase edge function
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`, {
+      // Send email directly to Resend API
+      const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
+          'Authorization': 'Bearer re_X7LQ9iHA_GHb1QiZQJE9AsWTQpkxsrpWe',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          from: 'Contact Form <onboarding@resend.dev>',
+          to: 'abhishekpanchal67@gmail.com',
+          subject: `Portfolio Contact: ${data.subject}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Subject:</strong> ${data.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p style="white-space: pre-wrap;">${data.message}</p>
+            <hr>
+            <p><em>Sent from your portfolio contact form</em></p>
+            <p><em>Reply to: ${data.email}</em></p>
+          `
+        }),
       });
 
       if (!response.ok) {
+        const errorData = await response.text();
+        console.error('Resend API error:', errorData);
         throw new Error('Failed to send email');
       }
       
