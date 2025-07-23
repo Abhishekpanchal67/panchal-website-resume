@@ -21,7 +21,7 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
     numericValue = parseFloat(value.replace(/[^\d.]/g, '')) || 0;
   }
   
-  const { count, elementRef } = useCountUp({ end: numericValue, duration: 2500 });
+  const { count, elementRef } = useCountUp({ end: numericValue, duration: 1500 });
   
   // Format the animated count back to original format
   const formatCount = (num: number) => {
@@ -49,11 +49,11 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
   return (
     <Card 
       ref={elementRef}
-      className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-500 animate-slide-up text-center backdrop-blur-sm group hover:scale-105"
+      className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 animate-slide-up text-center backdrop-blur-sm group hover:scale-105"
       style={{ animationDelay: `${delay}s` }}
     >
-      <CardContent className="p-4 sm:p-6">
-        <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${color} transition-all duration-300 group-hover:scale-110`}>
+      <CardContent className="p-3 sm:p-4 lg:p-6">
+        <div className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 ${color} transition-all duration-300 group-hover:scale-110 leading-tight`}>
           {formatCount(count)}
         </div>
         <div className="text-sm text-muted-foreground">
