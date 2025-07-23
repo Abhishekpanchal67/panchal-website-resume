@@ -19,14 +19,40 @@ interface FormData {
 export const ContactSection = () => {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>();
   const { toast } = useToast();
+  const [webhookUrl, setWebhookUrl] = useState("");
 
   const onSubmit = async (data: FormData) => {
+    if (!webhookUrl) {
+      toast({
+        title: "Error",
+        description: "Please enter your Zapier webhook URL",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
-      // For now, simulate success and show the data in console
-      console.log('Form data:', data);
-      
-      // Simulate sending delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("Triggering Zapier webhook:", webhookUrl);
+      console.log("Form data:", data);
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors", // Add this to handle CORS
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          timestamp: new Date().toISOString(),
+          triggered_from: window.location.origin,
+        }),
+      });
+
+      // Since we're using no-cors, we won't get a proper response status
+      // Instead, we'll show a more informative message
       
       // Trigger confetti
       confetti({
@@ -35,20 +61,19 @@ export const ContactSection = () => {
         origin: { y: 0.6 }
       });
       
-      // Show success toast with the data
       toast({
-        title: "Message Received!",
-        description: `Hi ${data.name}, I've received your message about "${data.subject}". I'll respond to ${data.email} soon!`,
+        title: "Message Sent!",
+        description: "Your message was sent to Zapier. Please check your Zap's history to confirm it was triggered.",
         duration: 5000,
       });
       
       // Reset form
       reset();
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error triggering webhook:", error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: "Failed to trigger the Zapier webhook. Please check the URL and try again.",
         variant: "destructive",
       });
     }
@@ -166,6 +191,21 @@ export const ContactSection = () => {
                 </h3>
                 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">
+                      Zapier Webhook URL
+                    </label>
+                    <Input 
+                      value={webhookUrl}
+                      onChange={(e) => setWebhookUrl(e.target.value)}
+                      placeholder="https://hooks.zapier.com/hooks/catch/..."
+                      className="bg-background/50 border-border focus:border-primary"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Enter your Zapier webhook URL to receive contact form submissions
+                    </p>
+                  </div>
+
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Name
