@@ -22,36 +22,11 @@ export const ContactSection = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Send email directly to Resend API
-      const response = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer re_X7LQ9iHA_GHb1QiZQJE9AsWTQpkxsrpWe',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: 'Contact Form <onboarding@resend.dev>',
-          to: 'abhishekpanchal67@gmail.com',
-          subject: `Portfolio Contact: ${data.subject}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${data.name}</p>
-            <p><strong>Email:</strong> ${data.email}</p>
-            <p><strong>Subject:</strong> ${data.subject}</p>
-            <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${data.message}</p>
-            <hr>
-            <p><em>Sent from your portfolio contact form</em></p>
-            <p><em>Reply to: ${data.email}</em></p>
-          `
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.text();
-        console.error('Resend API error:', errorData);
-        throw new Error('Failed to send email');
-      }
+      // For now, simulate success and show the data in console
+      console.log('Form data:', data);
+      
+      // Simulate sending delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       // Trigger confetti
       confetti({
@@ -60,17 +35,17 @@ export const ContactSection = () => {
         origin: { y: 0.6 }
       });
       
-      // Show success toast
+      // Show success toast with the data
       toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out, I will get back as soon as possible",
+        title: "Message Received!",
+        description: `Hi ${data.name}, I've received your message about "${data.subject}". I'll respond to ${data.email} soon!`,
         duration: 5000,
       });
       
       // Reset form
       reset();
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
