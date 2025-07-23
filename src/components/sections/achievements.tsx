@@ -25,12 +25,17 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
   
   // Format the animated count back to original format
   const formatCount = (num: number) => {
+    if (value.includes('$') && value.includes('K')) {
+      const kValue = num / 1000;
+      return value.includes('+') ? `$${Math.floor(kValue)}K+` : `$${Math.floor(kValue)}K`;
+    }
     if (value.includes('K') && !value.includes('M')) {
       const kValue = num / 1000;
       return value.includes('+') ? `${Math.floor(kValue)}K+` : `${Math.floor(kValue)}K`;
     }
     if (value.includes('M')) {
-      return `${(num / 1000000).toFixed(1)}M`;
+      const mValue = (num / 1000000).toFixed(1);
+      return value.includes('+') ? `${mValue}M+` : `${mValue}M`;
     }
     if (value.includes('x')) {
       return `${(num / 10).toFixed(1)}x`;
@@ -64,9 +69,9 @@ export const AchievementsSection = () => {
     { value: "$500K+", label: "Revenue", color: "text-blue-400" },
     { value: "2.5x", label: "Conversion", color: "text-green-400" },
     { value: "35%", label: "CAC Reduction", color: "text-purple-400" },
-    { value: "30K", label: "Qualified Leads", color: "text-orange-400" },
-    { value: "385K", label: "Clicks", color: "text-pink-400" },
-    { value: "23.6M", label: "SEO Impressions", color: "text-cyan-400" },
+    { value: "30K+", label: "Qualified Leads", color: "text-orange-400" },
+    { value: "385K+", label: "Clicks", color: "text-pink-400" },
+    { value: "23.6M+", label: "SEO Impressions", color: "text-cyan-400" },
   ];
 
   const awards = [
