@@ -14,36 +14,41 @@ serve(async (req) => {
   try {
     const { name, email, subject, message } = await req.json()
 
-    // For now, we'll use a simple email service
-    // You can replace this with Resend, SendGrid, or any other email service
+    // Send email using Resend
     const emailData = {
+      from: 'Contact Form <noreply@resend.dev>',
       to: 'abhishekpanchal67@gmail.com',
-      from: 'noreply@yourdomain.com', // Replace with your domain
-      subject: `Contact Form: ${subject}`,
+      subject: `Portfolio Contact: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p style="white-space: pre-wrap;">${message}</p>
         <hr>
         <p><em>Sent from your portfolio contact form</em></p>
+        <p><em>Reply to: ${email}</em></p>
       `
     }
 
-    // Here you would integrate with your preferred email service
-    // For example, with Resend:
-    // const response = await fetch('https://api.resend.com/emails', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Bearer ${Deno.env.get('RESEND_API_KEY')}`,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(emailData),
-    // })
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${Deno.env.get('RESEND_API_KEY')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData),
+    })
 
-    console.log('Email would be sent:', emailData)
+    if (!response.ok) {
+      const error = await response.text()
+      console.error('Resend API error:', error)
+      throw new Error('Failed to send email via Resend')
+    }
+
+    const result = await response.json()
+    console.log('Email sent successfully:', result)
 
     return new Response(
       JSON.stringify({ message: 'Email sent successfully' }),
