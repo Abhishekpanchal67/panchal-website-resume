@@ -61,7 +61,7 @@ const AnimatedAchievement = ({ value, label, color, delay = 0 }: {
 
 export const AchievementsSection = () => {
   const achievements = [
-    { value: "500K", label: "Revenue", color: "text-blue-400" },
+    { value: "$500K", label: "Revenue", color: "text-blue-400" },
     { value: "2.5x", label: "Conversion", color: "text-green-400" },
     { value: "35%", label: "CAC Reduction", color: "text-purple-400" },
     { value: "30K", label: "Qualified Leads", color: "text-orange-400" },
